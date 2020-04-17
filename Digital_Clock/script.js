@@ -5,7 +5,9 @@ setInterval(()=>{
     let min = time.getMinutes();
     let hr = time.getHours();
     let day = 'AM';
-
+    let mdate = time.getDate();
+    let month = time.getMonth();
+    let year = time.getFullYear();
     if(hr > 12){
         day = 'PM';
         hr = hr-12;
@@ -26,5 +28,13 @@ setInterval(()=>{
     if(hr < 9){
         hr = '0' + hr;
     }
-    clock.textContent = hr + ':' + min + ':' + sec + ' ' + day;  
+
+    if(mdate < 10){
+        mdate = '0' + mdate;
+    }
+
+    if(month < 9){
+        month = '0' + month;
+    }
+    clock.textContent = mdate + '-'+ month +'-' + year + ' ' + hr + ':' + min + ':' + sec + ' ' + day;  
 });
